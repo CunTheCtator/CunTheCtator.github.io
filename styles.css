@@ -54,16 +54,6 @@ h2 {
     font-size: 1.5em;
     margin-bottom: 10px;
 }
-
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: #00cc99;
-    color: #fff; 
-    text-align: center;
-    padding: 10px 0;
-  }
   
 
 form {
@@ -96,3 +86,53 @@ button:hover {
     background-color: #555;
 }
 
+article {
+    margin-top: 20px; /* Add margin to the top */
+    border: none; /* Remove the border */
+    padding: 10px;
+  }
+  
+  /* Add a thicker border-top and center it */
+  article:not(:first-child) {
+    border-top: 6px solid #000000; /* Increase border thickness and change color */
+    margin-top: 20px; /* Add margin to the top for better centering */
+  }
+  
+  
+  article h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  article p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: inline; /* Add this line to make the content inline */
+  }
+  
+  article a {
+    font-size: 16px;
+    color: #007BFF;
+    text-decoration: none;
+    margin-left: 10px; /* Add this to separate content from the link */
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  main {
+    flex-grow: 1;
+    overflow: auto;
+  }
+  
+  footer {
+    padding: 10px;
+    background-color: #00cc99;
+    color: #fff;
+    text-align: center;
+  }

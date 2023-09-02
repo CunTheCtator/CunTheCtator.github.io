@@ -42,41 +42,46 @@ function createBlogPost(title, content) {
 
 // Function to display blog posts (for index.html)
 function displayBlogPosts() {
-    const blogList = document.getElementById("blog-list");
+  const blogList = document.getElementById("blog-list");
 
-    // Clear existing posts
-    blogList.innerHTML = "";
+  // Clear existing posts
+  blogList.innerHTML = "";
 
-    // Retrieve and display blog posts
-    db.collection("blogposts")
-        .orderBy("timestamp", "desc")
-        .get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                const data = doc.data();
-                const article = document.createElement("article");
-                const titleElement = document.createElement("h2");
-                const contentElement = document.createElement("p");
+  // Retrieve and display blog posts
+  db.collection("blogposts")
+    .orderBy("timestamp", "desc")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const article = document.createElement("article");
+        const titleElement = document.createElement("h2");
+        const contentElement = document.createElement("p");
+        const linkElement = document.createElement("a");
+        const contentWrapper = document.createElement("div");
 
-                titleElement.textContent = data.title;
-                contentElement.textContent = data.content;
+        titleElement.textContent = data.title;
+        const contentWords = data.content.split(" ");
+        const firstTwoWords = contentWords.slice(0, 2).join(" ");
+        const remainingContent = contentWords.slice(2).join(" ");
 
-                article.appendChild(titleElement);
-                article.appendChild(contentElement);
+        contentElement.textContent = firstTwoWords + "..."; // Display the first two words followed by ellipsis
 
-                // Create a link to the individual blog post
-                const link = document.createElement("a");
-                link.href = `individual-blog.html?id=${doc.id}`;
-                link.textContent = "Read More";
+        linkElement.textContent = "Read more"; // Adjust the text as needed
+        linkElement.href = "individual-blog.html?id=" + doc.id; // Link to the individual blog post page
 
-                article.appendChild(link);
+        contentWrapper.appendChild(titleElement);
+        contentWrapper.appendChild(contentElement);
+        contentWrapper.appendChild(linkElement);
 
-                blogList.appendChild(article);
-            });
-        })
-        .catch((error) => {
-            console.error("Error getting documents: ", error);
-        });
+        article.appendChild(contentWrapper);
+
+        blogList.appendChild(article);
+      });
+    })
+    .catch((error) => {
+      console.error("Error getting documents: ", error);
+    });
 }
 
 // Call the displayBlogPosts function to initially load blog posts (for index.html)
