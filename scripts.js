@@ -80,7 +80,7 @@ function displayBlogPosts() {
 }
 
 // Call the displayBlogPosts function to initially load blog posts (for index.html)
-if (window.location.pathname === "/index.html" || window.location.pathname === "/") {
+if (window.location.pathname.includes("index.html")) {
     displayBlogPosts();
 }
 
