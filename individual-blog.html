@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Cunctator's website - Create a Blog</title>
+    <title>Cunctator's website - Blog Post</title>
 </head>
 <body>
     <header>
@@ -18,13 +18,10 @@
     </header>
 
     <main>
-        <form id="blog-form">
-            <label for="title">Title:</label>
-            <input type="text" id="title" required>
-            <label for="content">Content:</label>
-            <textarea id="content" required></textarea>
-            <button type="submit">Create</button>
-        </form>
+        <article>
+            <h2 id="individual-blog-title">Blog Post Title</h2>
+            <p id="individual-blog-content">Blog post content goes here.</p>
+        </article>
     </main>
 
     <footer>
@@ -36,6 +33,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
     <!-- Your Firebase configuration and JavaScript code -->
-    <script src="scripts.js"></script>
+    <script src="blog-scripts.js"></script>
 </body>
 </html>
