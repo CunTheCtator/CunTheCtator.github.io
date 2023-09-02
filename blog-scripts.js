@@ -25,8 +25,8 @@ function displayIndividualBlogPost(postId) {
       if (doc.exists) {
         const data = doc.data();
         // Display the individual blog post data on the page
-        const titleElement = document.getElementById("blog-title");
-        const contentElement = document.getElementById("blog-content");
+        const titleElement = document.getElementById("individual-blog-title");
+        const contentElement = document.getElementById("individual-blog-content");
 
         titleElement.textContent = data.title;
         contentElement.textContent = data.content;
@@ -41,7 +41,9 @@ function displayIndividualBlogPost(postId) {
 
 // Call the displayIndividualBlogPost function with the postId from the URL
 const urlParams = new URLSearchParams(window.location.search);
-const postId = urlParams.get("postId");
+const postId = urlParams.get("id");
+
+console.log(postId)
 
 if (postId) {
   displayIndividualBlogPost(postId);
