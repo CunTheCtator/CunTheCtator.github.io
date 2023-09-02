@@ -1,3 +1,9 @@
+// Import the Firebase configuration
+const firebaseConfig = require('./firebase-config');
+
+// Initialize Firebase with the imported configuration
+firebase.initializeApp(firebaseConfig);
+
 // Get a reference to the Firestore database
 const db = firebase.firestore();
 

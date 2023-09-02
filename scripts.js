@@ -1,15 +1,7 @@
-// Firebase configuration based on your provided information
-var firebaseConfig = {
-    apiKey: "AIzaSyBoitfZcjc0hw2bXaDbbbVx-TI5bgnMPqw",
-    authDomain: "testwebsite-d9b31.firebaseapp.com",
-    projectId: "testwebsite-d9b31",
-    storageBucket: "testwebsite-d9b31.appspot.com",
-    messagingSenderId: "337215100645",
-    appId: "1:337215100645:web:b7d38ae5c563579e33260c",
-    measurementId: "G-JCQZEXKZP3"
-  };
-  
-// Initialize Firebase with your configuration
+// Import the Firebase configuration
+const firebaseConfig = require('./firebase-config');
+
+// Initialize Firebase with the imported configuration
 firebase.initializeApp(firebaseConfig);
 
 // Get a reference to the Firestore database
