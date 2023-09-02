@@ -1,5 +1,5 @@
 // Import the Firebase configuration
-const firebaseConfig = require('./firebase-config');
+import firebaseConfig from './firebase-config.js';
 
 // Initialize Firebase with the imported configuration
 firebase.initializeApp(firebaseConfig);
